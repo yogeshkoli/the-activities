@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import 'semantic-ui-css/semantic.min.css'
+import { Header,List } from 'semantic-ui-react';
 
 const url = 'http://localhost:5098/api'
 
@@ -9,18 +11,18 @@ function App() {
 
   useEffect(() => {
     axios.get(`${url}/activities`).then(response => {
-      console.log(response);
       setActivities(response.data);
     });
   }, []);
 
   return (
     <div className="App">
-        <ul>
+        <Header as="h2" icon="users" content="The Activities" />
+        <List>
           {activites && activites.map((activity : any) => (
-            <li key={activity.id}>{activity.title}</li>
+            <List.Item key={activity.id}>{activity.title}</List.Item>
           ))}
-        </ul>
+        </List>
     </div>
   );
 }
