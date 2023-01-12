@@ -18,7 +18,7 @@ function App() {
     <div className="App">
         <ul>
           {activites && activites.map((activity : any) => (
-            <li key={activity.id}>{activity.name}</li>
+            <li key={activity.id}>{activity.title}</li>
           ))}
         </ul>
     </div>
